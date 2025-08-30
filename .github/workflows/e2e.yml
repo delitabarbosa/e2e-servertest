@@ -25,7 +25,7 @@ jobs:
       - name: Run Cypress tests (Chrome headless)
         run: |
           export TERM=xterm
-          npm run test:report
+          npm run test
 
       - name: Upload Mochawesome report
         uses: actions/upload-artifact@v4
