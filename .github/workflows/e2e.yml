@@ -3,9 +3,7 @@ name: E2E Tests
 on:
   push:
     branches:
-      - atualizando-automacao
-  pull_request:
-
+      - delita
 jobs:
   cypress-tests:
     runs-on: ubuntu-latest
