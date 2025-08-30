@@ -22,11 +22,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Cypress tests
-        run: npm run test:report
+      - name: Run Cypress tests (Chrome headless)
+        run: |
+          export TERM=xterm
+          npm run test:report
 
       - name: Upload Mochawesome report
         uses: actions/upload-artifact@v4
         with:
           name: mochawesome-report
-          path: cypress/reports/mochawesome/html
+          path: cypress/reports/mochawesome
