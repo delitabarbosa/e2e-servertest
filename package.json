@@ -4,7 +4,7 @@
   "description": "Automação E2E - ServerTest",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run --browser chrome --headless --no-sandbox --disable-dev-shm-usage"
+    "test": "cypress run --browser chrome --headless --no-sandbox --disable-dev-shm-usage",
     "test:report": "npm run test && start cypress/reports/mochawesome/index.html",
     "clean:screenshots": "rimraf cypress/screenshots/*",
     "cy:open": "npm run clean:screenshots && npx cypress open"
