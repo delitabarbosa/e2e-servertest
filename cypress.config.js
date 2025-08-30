@@ -19,8 +19,16 @@ module.exports = defineConfig({
     specPattern: 'cypress/e2e/**/*.cy.{js,ts}',
     supportFile: 'cypress/support/e2e.js',
     video: true,
-    chromeWebSecurity: false,
     setupNodeEvents(on, config) {
+
+      on('before:browser:launch', (browser = {}, launchOptions) => {
+        if (browser.family === 'chromium' && browser.name !== 'electron') {
+          launchOptions.args.push('--no-sandbox')
+          launchOptions.args.push('--disable-dev-shm-usage')
+        }
+        return launchOptions
+      });
+
       const { beforeRunHook } = require('cypress-mochawesome-reporter/lib');
       on('before:run', async (details) => {
         beforeRunHook(details);
@@ -39,8 +47,8 @@ module.exports = defineConfig({
         await fs.emptyDir(screenshotsPath);
         console.log('Pasta de screenshots limpa antes de rodar os testes!');
       });
+
       return mochawesome(on, config);
     },
   },
-  browser: 'chrome'
 });
