@@ -1,0 +1,26 @@
+{
+  "name": "e2e-serverest",
+  "version": "1.0.0",
+  "description": "Automação E2E - ServerTest",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "test:report": "npx cypress run && start cypress/reports/mochawesome/index.html",
+    "clean:screenshots": "rimraf cypress/screenshots/*",
+    "cy:open": "npm run clean:screenshots && npx cypress open"
+  },
+  "keywords": [],
+  "author": "Delita Barbosa da Silva",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "cypress": "^15.0.0",
+    "cypress-mochawesome-reporter": "^4.0.2",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^5.0.0",
+    "mochawesome-report-generator": "^6.2.0"
+  },
+  "dependencies": {
+    "fs-extra": "^11.3.1"
+  }
+}
