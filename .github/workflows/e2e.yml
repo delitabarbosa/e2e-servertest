@@ -3,7 +3,7 @@ name: E2E Tests
 on:
   push:
     branches:
-      - master
+      - atualizando-automacao
   pull_request:
 
 jobs:
