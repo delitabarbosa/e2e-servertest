@@ -70,6 +70,7 @@ Abra o arquivo `index.html` no navegador para visualizar os resultados.
 - Roda Cypress em cada **push** ou **pull request** para branch `delita`.  
 - Gera relatório consolidado **Mochawesome**.  
 - Faz upload do relatório como artefato no GitHub (download disponível na aba **Actions**).  
+<img width="1884" height="641" alt="image" src="https://github.com/user-attachments/assets/6182dcae-3266-401d-bddb-5b0698667544" />
 
 ---
 
