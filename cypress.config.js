@@ -19,6 +19,7 @@ module.exports = defineConfig({
     specPattern: 'cypress/e2e/**/*.cy.{js,ts}',
     supportFile: 'cypress/support/e2e.js',
     video: true,
+    chromeWebSecurity: false,
     setupNodeEvents(on, config) {
       const { beforeRunHook } = require('cypress-mochawesome-reporter/lib');
       on('before:run', async (details) => {
@@ -38,13 +39,8 @@ module.exports = defineConfig({
         await fs.emptyDir(screenshotsPath);
         console.log('Pasta de screenshots limpa antes de rodar os testes!');
       });
-
-      // on('after:run', async () => {
-      //   console.log('Override after:run');
-      //   await afterRunHook();
-      // });
-
       return mochawesome(on, config);
     },
   },
+  browser: 'chrome'
 });
