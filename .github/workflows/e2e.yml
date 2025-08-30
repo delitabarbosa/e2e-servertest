@@ -1,0 +1,32 @@
+name: E2E Tests
+
+on:
+  push:
+    branches:
+      - delita
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress tests (Chrome headless)
+        run: |
+          export TERM=xterm
+          npm run test
+
+      - name: Upload Mochawesome report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report
+          path: cypress/reports/mochawesome
